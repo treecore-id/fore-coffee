@@ -1,7 +1,9 @@
+<script setup></script>
+
 <template>
-  <header class="fixed w-full bg-white top-0 inset-x-0 py-5 z-50">
+  <header id="header" class="sticky bg-white w-full top-0 inset-x-0 py-5 z-50">
     <nav
-      class="flex flex-row flex-wrap justify-between items-center mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl"
+      class="flex flex-row flex-wrap w-full justify-between items-center mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl"
     >
       <figure class="h-8">
         <router-link to="/">
@@ -17,40 +19,44 @@
         <li>
           <router-link
             to="/about"
-            class="font-semibold text-primary px-3 py-1 transition-colors duration-100 ease-in hover:text-secondary"
+            class="font-medium text-primary px-3 py-2 transition-colors duration-100 ease-in hover:text-secondary"
             >About</router-link
           >
         </li>
         <li>
           <router-link
             to="/menu"
-            class="font-semibold text-primary px-3 py-1 transition-colors duration-100 ease-in hover:text-secondary"
+            class="font-medium text-primary px-3 py-2 transition-colors duration-100 ease-in hover:text-secondary"
             >Menu</router-link
           >
         </li>
         <li>
           <router-link
             to="/store"
-            class="font-semibold text-primary px-3 py-1 transition-colors duration-100 ease-in hover:text-secondary"
+            class="font-medium text-primary px-3 py-2 transition-colors duration-100 ease-in hover:text-secondary"
             >Store</router-link
           >
         </li>
         <li>
           <router-link
             to="/career"
-            class="font-semibold text-primary px-3 py-1 transition-colors duration-100 ease-in hover:text-secondary"
+            class="font-medium text-primary px-3 py-2 transition-colors duration-100 ease-in hover:text-secondary"
             >Career</router-link
           >
         </li>
         <li>
           <router-link
             to="/contact"
-            class="font-semibold text-primary px-3 py-1 transition-colors duration-100 ease-in hover:text-secondary"
+            class="font-medium text-primary px-3 py-2 transition-colors duration-100 ease-in hover:text-secondary"
             >Contact Us</router-link
           >
         </li>
       </ul>
-      <a href="#">Download App</a>
+      <router-link
+        to="#"
+        class="font-medium text-primary border border-primary rounded-full px-6 py-2"
+        >Download App</router-link
+      >
     </nav>
   </header>
 </template>
