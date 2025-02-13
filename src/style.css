@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #006041;
+  --color-secondary: #97a259;
+}
+
+
+* {
+    box-sizing: border-box;
+    border: 0 solid;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.container {
+  padding-left: calc(100vw - 100%);
+}
