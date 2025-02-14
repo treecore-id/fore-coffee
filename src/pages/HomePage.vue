@@ -42,7 +42,7 @@
         <figcaption class="sr-only"></figcaption>
       </figure>
       <div class="block">
-        <p class="font-normal text-xl text-gray-800 leading-10">
+        <p class="font-normal text-xl text-gray-800 text-justify leading-10">
           In the pursuit of brewing the perfect cup, Fore Coffee is bringing the
           Indonesian coffee lifestyle to Singapore. As the pioneer that seeks to
           introduce what it means to enjoy coffee the Indonesian way, we promise
@@ -54,7 +54,7 @@
         </p>
         <router-link
           to="#"
-          class="group inline-flex items-center font-medium text-primary border border-primary rounded-full px-6 py-2"
+          class="group inline-flex items-center font-medium text-primary border-2 border-primary rounded-full px-6 py-2 mt-5 transition-all duration-100 ease-in hover:bg-primary hover:text-white"
           >Read More
           <svg
             xmlns="http://www.w3.org/2000/svg"
