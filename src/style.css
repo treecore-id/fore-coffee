@@ -5,6 +5,7 @@
   --color-secondary: #97a259;
   --color-hero-background: #f4f2ef;
   --color-dark: #1a4034;
+  --color-mobile-background: #e7f0ee;
 }
 
 * {
@@ -17,10 +18,10 @@ body {
   font-style: normal;
 }
 
-/* html {
+html {
   scrollbar-gutter: stable;
 }
 
 .container {
   padding-left: calc(100vw - 100%);
-} */
+}

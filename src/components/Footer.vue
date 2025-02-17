@@ -5,9 +5,7 @@ const year = new Date().getFullYear();
 <template>
     <footer class="relative flex flex-col justify-start items-start w-full space-y-12 mx-auto py-12 md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
         <figure class="absolute top-0 left-0 right-0 md:-left-20 w-fit h-full">
-            <router-link to="/">
-                <img src="/images/logo-shadow.png" alt="Logo Fore Coffee" class="object-contain object-center w-full h-full" />
-            </router-link>
+            <img src="/images/logo-shadow.png" alt="Logo Fore Coffee" class="object-contain object-center w-full h-full" />
             <figcaption class="sr-only">Logo Fore Coffee</figcaption>
         </figure>
         <div class="flex flex-col md:flex-row w-full items-center justify-center md:justify-between md:text-start gap-3 md:gap-0">
