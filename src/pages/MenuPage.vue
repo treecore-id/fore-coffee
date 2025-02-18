@@ -180,10 +180,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active {
   transition: all 0.5s ease;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from {
   opacity: 0;
 }
 </style>
