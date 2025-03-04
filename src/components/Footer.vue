@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
             <figcaption class="sr-only">Logo Fore Coffee</figcaption>
         </figure>
         <div class="flex flex-col md:flex-row w-full items-center justify-center md:justify-between md:text-start gap-3 md:gap-0">
-            <figure class="h-11">
+            <figure class="h-8">
                 <router-link to="/">
                     <img src="/images/logo-2.png" alt="Logo Fore Coffee" class="object-contain object-center w-full h-full" />
                 </router-link>
