@@ -30,7 +30,9 @@ const OpenMenu = ref(false)
                     <router-link to="/contact" class="font-medium text-primary px-3 py-2 transition-colors duration-100 ease-in hover:text-secondary">Contact Us</router-link>
                 </li>
             </ul>
-            <router-link to="#" class=" hidden md:block font-medium text-primary border-2 border-primary rounded-full px-6 py-2 transition-colors duration-100 ease-in hover:bg-primary hover:text-white">Download App</router-link>
+            <router-link to="#" class=" hidden md:block font-medium text-primary border-2 border-primary rounded-full px-6 py-2 transition-colors duration-100 ease-in hover:bg-primary hover:text-white">
+                Download App
+            </router-link>
             <button @click="OpenMenu = !OpenMenu" class="block md:hidden cursor-pointer outline-none">
                 <svg v-if="!OpenMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="size-6 fill-gray-500">
                     <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
