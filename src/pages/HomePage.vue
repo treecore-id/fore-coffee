@@ -153,12 +153,12 @@ const instagram = [
         <section class="bg-background-secondary py-24">
             <div class="grid grid-cols-1 md:grid-cols-2 w-full items-center mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
                 <div class="block w-full space-y-3">
-                    <h5 class=" font-normal text-sm md:text-xl text-secondary tracking-widest">
+                    <h3 class=" font-normal text-sm md:text-xl text-secondary tracking-widest">
                         FORE COFFEE APP
-                    </h5>
-                    <h3 class="font-bold text-base md:text-5xl text-primary mb-8">
-                        Better Coffee Experience With Fore Coffee App
                     </h3>
+                    <h5 class="font-bold text-base md:text-5xl text-primary mb-8">
+                        Better Coffee Experience With Fore Coffee App
+                    </h5>
                     <p class="font-normal text-lg text-gray-800 text-justify leading-8 mb-8">
                         More Coffee, More Benefits!<br>
                         Sip your first coffee for only $2.99, best value priced on app, and earn more point rewards from each purchase!
@@ -178,6 +178,34 @@ const instagram = [
                 <figure class="block w-full">
                     <img src="/images/apps-sg.png" alt="Fore App" class="object-contain object-center w-full h-full max-h-[500px]" />
                     <figcaption class="sr-only">Fore App</figcaption>
+                </figure>
+            </div>
+        </section>
+        <section class="grid grid-cols-1 w-full justify-center items-center bg-background-secondary space-y-6 py-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full bg-[#f6f5e6] p-15 rounded-[75px] mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
+                <div class="col-span-1 md:col-span-3">
+                    <figure class="block w-full">
+                        <img src="/images/shadow-benefit-and-promo.png" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-15" />
+                        <figcaption class="sr-only">Benefit & Promo</figcaption>
+                    </figure>
+                    <h1 class="font-bold text-6xl text-primary text-center -mt-10">
+                        Benefit & Promo
+                    </h1>
+                    <h3 class="font-normal text-sm md:text-2xl text-secondary text-center tracking-widest">
+                        for your daily caffeine intake!
+                    </h3>
+                </div>
+                <figure class="block w-full rounded-2xl overflow-hidden">
+                    <img src="/images/benefit-and-promo-1.jpg" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-[500px]" />
+                    <figcaption class="sr-only">Benefit & Promo</figcaption>
+                </figure>
+                <figure class="block w-full rounded-2xl overflow-hidden">
+                    <img src="/images/benefit-and-promo-2.jpg" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-[500px]" />
+                    <figcaption class="sr-only">Benefit & Promo</figcaption>
+                </figure>
+                <figure class="block w-full rounded-2xl overflow-hidden">
+                    <img src="/images/benefit-and-promo-3.jpg" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-[500px]" />
+                    <figcaption class="sr-only">Benefit & Promo</figcaption>
                 </figure>
             </div>
         </section>
