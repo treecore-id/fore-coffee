@@ -105,7 +105,7 @@ const instagram = [
 
 <template>
     <main>
-        <section class="w-full bg-hero-background">
+        <section class="w-full bg-hero-background px-6 md:px-0">
             <div class="grid grid-cols-1 md:grid-cols-2 w-full justify-center items-center space-x-6 mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
                 <div class="flex flex-col text-center md:text-left space-y-3">
                     <h1 class="font-bold text-2xl md:text-8xl text-primary">Grind The Essentials</h1>
@@ -119,19 +119,20 @@ const instagram = [
                 </figure>
             </div>
         </section>
-        <section class="grid grid-cols-1 w-full justify-center items-center mx-auto mt-6">
+        <!-- Our Story -->
+        <section class="grid grid-cols-1 w-full justify-center items-center mx-auto mt-6 px-6 md:px-0">
             <div class="bg-[url('/images/shadow-our-story.png')] bg-repeat-x pt-10">
-                <h1 class="font-bold text-8xl text-primary mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
+                <h1 class="font-bold text-6xl md:text-8xl text-primary mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
                     Our Story
                 </h1>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 w-full justify-center items-center space-x-12 py-12 mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
-                <figure class="block">
-                    <img src="/images/our-story-1.jpg" alt="Fore Coffee uses 100 per cent Arabica coffee beans sourced from Aceh, Bali, Toraja, and West Java." class="object-cover object-center w-full h-full" />
+            <div class="grid grid-cols-1 2xl:grid-cols-2 w-full justify-center items-center gap-12 py-12 mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
+                <figure class="block w-full 2xl:rounded-s-[75px] overflow-hidden">
+                    <img src="/images/fore-coffee-in-singapore_transparent.jpg" alt="Fore Coffee uses 100 per cent Arabica coffee beans sourced from Aceh, Bali, Toraja, and West Java." class="object-cover object-center w-full h-full" />
                     <figcaption class="sr-only">Fore Coffee uses 100 per cent Arabica coffee beans sourced from Aceh, Bali, Toraja, and West Java.</figcaption>
                 </figure>
                 <div class="flex flex-col justify-center h-full">
-                    <p class="font-normal text-xl text-gray-800 text-justify leading-10">
+                    <p class="font-normal md:text-xl text-gray-800 text-justify leading-10">
                         In the pursuit of brewing the perfect cup, Fore Coffee is bringing the
                         Indonesian coffee lifestyle to Singapore. As the pioneer that seeks to
                         introduce what it means to enjoy coffee the Indonesian way, we promise
@@ -141,7 +142,7 @@ const instagram = [
                         coffee, delivering the best Indonesia has to offer with our signature
                         creations and innovations.
                     </p>
-                    <router-link to="#" class="group inline-flex items-center w-fit font-medium text-primary border-2 border-primary rounded-full px-6 py-2 mt-5 transition-all duration-100 ease-in hover:bg-primary hover:text-white">
+                    <router-link to="about" class="group inline-flex items-center w-fit font-medium text-primary border-2 border-primary rounded-full px-6 py-2 mt-5 transition-all duration-100 ease-in hover:bg-primary hover:text-white">
                         Read More
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 transition duration-200 ease-in group-hover:rotate-45 ml-2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
@@ -150,70 +151,74 @@ const instagram = [
                 </div>
             </div>
         </section>
-        <section class="bg-background-secondary py-24">
+        <!-- Fore Coffea App -->
+        <section class="bg-background-secondary py-24 px-6 md:px-0">
             <div class="grid grid-cols-1 md:grid-cols-2 w-full items-center mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
                 <div class="block w-full space-y-3">
                     <h3 class=" font-normal text-sm md:text-xl text-secondary tracking-widest">
                         FORE COFFEE APP
                     </h3>
-                    <h5 class="font-bold text-base md:text-5xl text-primary mb-8">
+                    <h5 class="font-bold text-4xl md:text-5xl text-primary mb-8">
                         Better Coffee Experience With Fore Coffee App
                     </h5>
-                    <p class="font-normal text-lg text-gray-800 text-justify leading-8 mb-8">
+                    <p class="font-normal md:text-lg text-gray-800 text-justify leading-8 mb-8">
                         More Coffee, More Benefits!<br>
                         Sip your first coffee for only $2.99, best value priced on app, and earn more point rewards from each purchase!
                     </p>
-                    <p class="font-normal text-lg text-gray-800 text-justify leading-8">
+                    <p class="font-normal md:text-lg text-gray-800 text-justify leading-8">
                         Get the App
                     </p>
-                    <div class="inline-flex w-full gap-2">
-                        <a href="#" target="_blank" ref="" class="block h-10">
+                    <div class="inline-flex w-full gap-2 justify-center md:justify-start">
+                        <a href="https://play.google.com/store/search?q=fore%20coffee&c=apps&hl=en-ID" target="_blank" ref="mofollow" class="block h-10">
                             <img src="/images/google-play.png" alt="Google Play Store" class="object-contain object-center w-full h-full">
                         </a>
-                        <a href="#" target="_blank" ref="" class="block h-10">
+                        <a href="https://apps.apple.com/id/app/fore-coffee/id1438745141?l=id" target="_blank" ref="mofollow" class="block h-10">
                             <img src="/images/app-store.png" alt="Google Play Store" class="object-contain object-center w-full h-full">
                         </a>
                     </div>
                 </div>
-                <figure class="block w-full">
+                <figure class="block w-full mt-6 md:mt-0">
                     <img src="/images/apps-sg.png" alt="Fore App" class="object-contain object-center w-full h-full max-h-[500px]" />
                     <figcaption class="sr-only">Fore App</figcaption>
                 </figure>
             </div>
         </section>
-        <section class="grid grid-cols-1 w-full justify-center items-center bg-background-secondary space-y-6 py-24">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full bg-[#f6f5e6] p-15 rounded-[75px] mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
-                <div class="col-span-1 md:col-span-3">
+        <!-- Benefit & Promo -->
+        <section class="grid grid-cols-1 w-full justify-center items-center bg-background-secondary space-y-6 py-24 px-6 md:px-0">
+            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 w-full p-15 rounded-[75px] shadow-lg shadow-gray-300 mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl overflow-hidden">
+                <img src="/images/bg-benefit-and-promo.jpg" class="absolute z-10 object-cover object-center w-full h-full">
+                <div class="col-span-1 md:col-span-3 z-20">
                     <figure class="block w-full">
                         <img src="/images/shadow-benefit-and-promo.png" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-15" />
                         <figcaption class="sr-only">Benefit & Promo</figcaption>
                     </figure>
-                    <h1 class="font-bold text-6xl text-primary text-center -mt-10">
+                    <h1 class="font-bold text-4xl md:text-6xl text-primary text-center -mt-10">
                         Benefit & Promo
                     </h1>
                     <h3 class="font-normal text-sm md:text-2xl text-secondary text-center tracking-widest">
                         for your daily caffeine intake!
                     </h3>
                 </div>
-                <figure class="block w-full rounded-2xl overflow-hidden">
+                <figure class="block w-full rounded-2xl overflow-hidden z-20">
                     <img src="/images/benefit-and-promo-1.jpg" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-[500px]" />
                     <figcaption class="sr-only">Benefit & Promo</figcaption>
                 </figure>
-                <figure class="block w-full rounded-2xl overflow-hidden">
+                <figure class="block w-full rounded-2xl overflow-hidden z-20">
                     <img src="/images/benefit-and-promo-2.jpg" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-[500px]" />
                     <figcaption class="sr-only">Benefit & Promo</figcaption>
                 </figure>
-                <figure class="block w-full rounded-2xl overflow-hidden">
+                <figure class="block w-full rounded-2xl overflow-hidden z-20">
                     <img src="/images/benefit-and-promo-3.jpg" alt="Benefit & Promo" class="object-contain object-center w-full h-full max-h-[500px]" />
                     <figcaption class="sr-only">Benefit & Promo</figcaption>
                 </figure>
             </div>
         </section>
-        <section class="grid grid-cols-1 w-full justify-center items-center bg-background-secondary space-y-6 py-24">
+        <!-- Connect with us -->
+        <section class="grid grid-cols-1 w-full justify-center items-center bg-background-secondary space-y-6 py-24 px-6 md:px-0">
             <h3 class="font-bold text-base md:text-2xl text-center text-secondary mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
                 Connect With Us
             </h3>
-            <a href="https://www.instagram.com/forecoffee.sg/" target="_blank" class="font-bold text-6xl text-primary mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
+            <a href="https://www.instagram.com/forecoffee.sg/" target="_blank" class="font-bold text-4xl md:text-6xl text-primary mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
                 @forecoffee.sg
             </a>
             <a to="#" class="group inline-flex items-center w-fit font-medium text-primary border-2 border-primary rounded-full px-6 py-2 transition-all duration-100 ease-in hover:bg-primary hover:text-white mx-auto cursor-pointer">

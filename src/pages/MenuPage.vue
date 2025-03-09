@@ -280,15 +280,57 @@ const menu = [
         type: "Fore Deli",
         list: [
             {
-                name: "",
-                description: "",
-                image: "/images/menu/ice.jpg",
+                name: "Dark Chocolate Brownies",
+                description: "Rich and fudgy brownies with intense chocolate flavour",
+                image: "/images/menu/dark-choco-brownies.jpg",
+                price: 5.0,
+            },
+            {
+                name: "Almond Croissant",
+                description: "Viennoiserie with almond filling and sliced almond topping",
+                image: "/images/menu/almond-croissant-sg.jpg",
+                price: 5.5
+            },
+            {
+                name: "Butter Croissant",
+                description: "Viennoiserie with taste and aroma of butter",
+                image: "/images/menu/butter-croissant.jpg",
+                price: 4.5,
+            },
+            {
+                name: "Kouign Amann",
+                description: "Viennoiserie with a layer of sugar in a circular shape",
+                image: "/images/menu/kouig-amann.jpg",
+                price: 5.0,
+            },
+            {
+                name: "Pain Au Chocolat",
+                description: "Viennoiserie with chocolate filling",
+                image: "/images/menu/pain-au-chocolate.jpg",
+                price: 5.0,
+            },
+            {
+                name: "Mushroom Gruyère Danish",
+                description: "Danish with shitake mushroom, onion, and Gruyère cheese.",
+                image: "/images/menu/mushroom-gruyère-danish.jpg",
+                price: 5.0,
+            },
+            {
+                name: "Cempedak Crumble Tart",
+                description: "Sweet and flavourful cempedak, top with lightly salted buttery crumble",
+                image: "/images/menu/cempedak-crumble-tart.jpg",
+                price: 5.5,
+            },
+            {
+                name: "Creamy Chicken Pain Suisse",
+                description: "Croissant-like-brioche bread with tender chicken, creamy sauce with rich flavors and textures",
+                image: "/images/menu/creamy-chicken-pain-suisse.jpg",
                 price: 6.0,
             },
             {
-                name: "",
-                description: "",
-                image: "/images/menu/honey.jpg",
+                name: "Ube Mochi Croissant",
+                description: "Croissant dough with local dessert ‘Bo Bo Cha Cha’ sweet potato, yam and coconut mochi.",
+                image: "/images/menu/ube-mochi-croissant.jpg",
                 price: 6.0,
             },
         ]
@@ -316,6 +358,9 @@ const menuActive = ref(null)
 const ChangeMenu = (val) => {
     menuActive.value = val
 };
+const SelectMenu = (event) => {
+    menuActive.value = event.target.value
+}
 
 onMounted(() => {
     menuActive.value = menu[0].type;
@@ -323,25 +368,29 @@ onMounted(() => {
 </script>
 <template>
     <main class="flex flex-col mx-auto md:max-w-lg lg:max-w-3xl 2xl:max-w-7xl">
-        <section class="grid grid-cols-1 w-full justify-center items-center mx-auto mt-6">
-            <div class="bg-[url('/images/our-story.png')] bg-repeat-x pt-10">
-                <h1 class="font-bold text-8xl text-[#5C6336] text-center">
-                    Menu
-                </h1>
-            </div>
-            <p class="font-normal text-base text-center text-dark my-20">
+        <section class="grid grid-cols-1 w-full justify-center items-center mx-auto mt-18 px-6 md:px-0">
+            <h1 class="font-bold text-5xl text-primary text-center">
+                Menu
+            </h1>
+            <p class="font-normal text-lg text-center text-dark my-6">
                 The price shown is applied to the Fore Coffee Application
             </p>
-            <p class="w-full rounded-full border-dashed border-2 border-secondary p-3 font-normal text-2xl text-center tracking-wide text-secondary">
+            <p class="w-full rounded-full border-dashed border-2 border-secondary p-3 font-normal text-2xl text-center tracking-wide text-secondary mt-12">
                 TYPE OF SERVICES AVAILABLE | <span class="font-bold text-[#5C6336]"> Pick-up </span> &bull; <span class="font-semibold"> Delivery </span>
             </p>
         </section>
-        <section class="grid grid-cols-1 md:grid-cols-4 space-x-6">
-            <div class="col-span-1 flex flex-col justify-between">
+        <section class="grid grid-cols-1 md:grid-cols-4 space-x-6 px-6 md:px-0">
+            <div class="sm:hidden w-full mt-6">
+                <label for="Tab" class="sr-only">Tab</label>
+                <select id="Tab" @change="SelectMenu($event)" class="w-full rounded-md border border-gray-300 p-2">
+                    <option v-for="data in menu" :value="data.type">{{ data.type }}</option>
+                </select>
+            </div>
+            <div class="hidden md:flex col-span-1 flex-col justify-between">
                 <div class="px-4 py-6">
                     <ul class="space-y-3">
                         <li v-for="data in menu">
-                            <button @click="ChangeMenu(data.type)" :class="menuActive == data.type ? 'bg-gray-100 text-gray-700' : ' text-gray-600 hover:bg-gray-100 hover:text-gray-700'" class="block w-full text-left cursor-pointer rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                            <button @click="ChangeMenu(data.type)" :class="menuActive == data.type ? 'bg-gray-100 text-gray-700' : ' hover:bg-gray-100 hover:text-gray-700'" class="block w-full text-left cursor-pointer rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                 {{ data.type }}
                             </button>
                         </li>
@@ -349,23 +398,23 @@ onMounted(() => {
                 </div>
             </div>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[0].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[0].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[0].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[0].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[0].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -373,23 +422,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[1].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[1].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[1].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[1].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[1].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -397,23 +446,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[2].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[2].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[2].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[2].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[2].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -421,23 +470,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[3].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[3].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[3].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[3].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[3].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -445,23 +494,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[4].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[4].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[4].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[4].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[4].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -469,23 +518,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[5].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[5].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[5].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[5].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[5].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -493,23 +542,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[6].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[6].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[6].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[6].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[6].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -517,23 +566,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[7].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[7].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[7].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[7].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[7].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -541,23 +590,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[8].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[8].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[8].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[8].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[8].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
@@ -565,23 +614,23 @@ onMounted(() => {
                 </div>
             </transition>
             <transition name="fade" mode="out-in">
-                <div v-if="menuActive == menu[9].type" class="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-2 w-full py-6 gap-3">
-                    <div class="col-span-1 md:col-span-2 block w-full">
+                <div v-if="menuActive == menu[9].type" class="col-span-1 md:col-span-3 grid grid-cols-2 w-full h-fit py-6 gap-3">
+                    <div class="col-span-2 block w-full">
                         <h3 class="font-bold text-xl md:text-2xl text-gray-800">
                             {{ menu[9].type }}
                         </h3>
                     </div>
-                    <div v-for="list in menu[9].list" class="flex w-full p-3">
-                        <figure class="block flex-none w-48 h-48 rounded-md overflow-hidden">
+                    <div v-for="list in menu[9].list" class="flex flex-col 2xl:flex-row gap-3 2xl:gap-0 w-full p-3 rounded-xl border border-gray-200 md:border-0">
+                        <figure class="block flex-none 2xl:w-48 2xl:h-48 rounded-md overflow-hidden">
                             <img :src="list.image" alt="Coffee Picture" class="object-cover object-center w-full h-full cursor-pointer transition duration-100 ease-in hover:scale-105" />
                             <figcaption class="sr-only"></figcaption>
                         </figure>
-                        <div class="flex flex-col rounded-md pl-6 space-y-1">
-                            <h4 class="font-medium text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
+                        <div class="flex flex-col rounded-md p-3 2xl:pl-6 space-y-1">
+                            <h4 class="font-medium text-base md:text-xl text-gray-800 cursor-pointer transition duration-100 ease-in hover:text-primary">
                                 {{ list.name }}
                             </h4>
                             <h5 class="inline-flex font-bold text-sm text-red-700">SGD${{ list.price }}</h5>
-                            <p class="font-normal text-sm leading-loose text-gray-500">
+                            <p class="font-normal text-xs md:text-sm leading-loose text-gray-500">
                                 {{ list.description }}
                             </p>
                         </div>
